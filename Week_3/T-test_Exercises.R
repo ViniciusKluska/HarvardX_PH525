@@ -52,4 +52,5 @@
 # Question 2
 
     pval <- 1-(pnorm(abs(tval))-pnorm(-abs(tval)))
+    
     print(pval)
