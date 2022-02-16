@@ -11,20 +11,22 @@ dat <- dat[sample(nrow(dat)),] #shuffle them up
 head(dat)
 
 tab <- table(genotype,disease)
-tab
+
+print(tab)
 
 # odds ratio
 (tab[2,2]/tab[2,1]) / (tab[1,2]/tab[1,1])
 
 # overall proportion that have the disease
 p=mean(disease=="cases")
-p
+
+print(p)
 
 # expected table
 expected <- rbind(c(1-p,p)*sum(genotype=="AA/Aa"),
                   c(1-p,p)*sum(genotype=="aa"))
 dimnames(expected)<-dimnames(tab)
-expected
+print(expected)
 
 # chi sq test
 chisq.test(tab)$p.value
@@ -34,6 +36,7 @@ chisq.test(tab)$p.value
 d = read.csv("assoctest.csv")
 str(d)
 tab <- table(d$allele,d$case)
-tab
-chisq.test(tab)
-fisher.test(tab)
+print(tab)
+print(chisq.test(tab))
+print(fisher.test(tab))
+
