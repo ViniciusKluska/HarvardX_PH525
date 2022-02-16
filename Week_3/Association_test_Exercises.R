@@ -33,7 +33,7 @@ chisq.test(tab)$p.value
 
 ## ASSOCIATION TESTS EXERCISES
 
-d = read.csv("assoctest.csv")
+d = read.csv("C:/Users/klusk/Projects/HarvardX_PH525/Data_HarvardX/assoctest.csv")
 str(d)
 tab <- table(d$allele,d$case)
 print(tab)
