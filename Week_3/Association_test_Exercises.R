@@ -1,0 +1,39 @@
+## ASSOCIATION TESTS
+
+# lab / textbook example
+
+disease=factor(c(rep(0,180),rep(1,20),rep(0,40),rep(1,10)),
+               labels=c("control","cases"))
+genotype=factor(c(rep("AA/Aa",200),rep("aa",50)),
+                levels=c("AA/Aa","aa"))
+dat <- data.frame(disease, genotype)
+dat <- dat[sample(nrow(dat)),] #shuffle them up
+head(dat)
+
+tab <- table(genotype,disease)
+tab
+
+# odds ratio
+(tab[2,2]/tab[2,1]) / (tab[1,2]/tab[1,1])
+
+# overall proportion that have the disease
+p=mean(disease=="cases")
+p
+
+# expected table
+expected <- rbind(c(1-p,p)*sum(genotype=="AA/Aa"),
+                  c(1-p,p)*sum(genotype=="aa"))
+dimnames(expected)<-dimnames(tab)
+expected
+
+# chi sq test
+chisq.test(tab)$p.value
+
+## ASSOCIATION TESTS EXERCISES
+
+d = read.csv("assoctest.csv")
+str(d)
+tab <- table(d$allele,d$case)
+tab
+chisq.test(tab)
+fisher.test(tab)
