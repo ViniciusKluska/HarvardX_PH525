@@ -25,9 +25,11 @@ boxplot(x,y+100)
 answer_3<-t.test(x,y+10)$statistic-t.test(x,y+100)$statistic
 wilcox.test(x,y+10)$statistic-wilcox.test(x,y+100)$statistic
 
-wilcox.test(c(1,2,3),c(4,5,6))$p.value
-wilcox.test(c(1,2,3),c(400,500,600))$p.value
+answer_QUIZ_2<-wilcox.test(c(1,2,3),c(4,5,6))$p.value
+answer_QUIZ_3<-wilcox.test(c(1,2,3),c(400,500,600))$p.value
 
 print(answer_1)
 print(answer_2)
 print(answer_3)
+print(answer_QUIZ_2)
+print(answer_QUIZ_3)
